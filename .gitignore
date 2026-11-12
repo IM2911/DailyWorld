@@ -9,3 +9,10 @@ dist/
 .vercel/
 *.log
 .DS_Store
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
