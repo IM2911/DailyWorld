@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, Clock } from "lucide-react";
+import { AdInArticle } from "@/components/AdInArticle";
 
 type ArticleTemplateProps = {
   title: string;
@@ -19,8 +20,36 @@ export const ArticleTemplate: React.FC<ArticleTemplateProps> = ({
   readingTime,
   relatedGuides,
 }) => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    author: {
+      "@type": "Organization",
+      name: "DailyWorld",
+      url: "https://dailyworld.app",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "DailyWorld",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://dailyworld.app/dailyworld-public-logo/icon.png",
+      },
+    },
+    description: title,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://dailyworld.app/guides",
+    },
+  };
+
   return (
     <article className="container-page py-10 md:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="article-shell">
         <nav className="breadcrumb mb-8" aria-label="Breadcrumb">
           <Link href="/guides" className="inline-flex items-center gap-2">
@@ -54,6 +83,10 @@ export const ArticleTemplate: React.FC<ArticleTemplateProps> = ({
           className="article-prose"
           dangerouslySetInnerHTML={{ __html: content }}
         />
+
+        <div className="my-8">
+          <AdInArticle />
+        </div>
 
         {relatedGuides && relatedGuides.length > 0 && (
           <section className="mt-16 border-t border-border pt-10">

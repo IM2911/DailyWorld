@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { AdSidebar } from "@/components/AdSidebar";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -71,6 +72,10 @@ export function CalculatorLayout({
             </section>
           )}
 
+          {
+            /* Sidebar AdSense unit */
+            <AdSidebar />
+          }
           {relatedGuides && relatedGuides.length > 0 && (
             <section className="calculator-aside">
               <h2 className="mb-3 text-base">Related guides</h2>

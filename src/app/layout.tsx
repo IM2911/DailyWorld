@@ -99,6 +99,7 @@ export const metadata: Metadata = {
   },
   other: {
     "adsense-global": process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "",
+    "google-adsense": process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "",
   },
 };
 
