@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Terms of Use",
+  description:
+    "The terms for using DailyWorld and its electricity cost calculators, including the accuracy and limits of calculator results.",
+  path: "/terms-of-use",
+});
+
 export default function TermsOfUsePage() {
   return (
     <div className="container-page py-12">

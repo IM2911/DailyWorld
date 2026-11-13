@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Cookie Policy",
+  description:
+    "What cookies DailyWorld uses, what they are for, and how you can control them.",
+  path: "/cookie-policy",
+});
+
 export default function CookiePolicyPage() {
   return (
     <div className="container-page py-12">

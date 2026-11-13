@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy",
+  description:
+    "How DailyWorld handles data, cookies, Google Analytics and Google AdSense, and how you can exercise your privacy rights.",
+  path: "/privacy-policy",
+});
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="container-page py-12">

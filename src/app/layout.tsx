@@ -6,6 +6,8 @@ import { AdUnit } from "@/components/ad-unit";
 import { CookieConsent } from "@/components/cookie-consent";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -30,7 +32,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dailyworld.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default:
       "DailyWorld — Electricity Cost Calculators & Energy Guides",
@@ -56,29 +58,23 @@ export const metadata: Metadata = {
     telephone: false,
     address: false,
   },
+  // Fallback for routes without their own metadata (e.g. 404). Pages set
+  // their own canonical and og:url through pageMetadata() in lib/seo.ts.
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://dailyworld.app",
-    siteName: "DailyWorld",
+    siteName: SITE_NAME,
     title: "DailyWorld — Electricity Cost Calculators & Energy Guides",
     description:
       "Free electricity cost calculators, appliance energy guides, and energy-saving tips. Calculate how much your appliances cost to run.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "DailyWorld electricity cost calculators",
-      },
-    ],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "DailyWorld — Electricity Cost Calculators & Energy Guides",
     description:
       "Free electricity cost calculators, appliance energy guides, and energy-saving tips.",
-    images: ["/og-image.png"],
+    images: [DEFAULT_OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -90,9 +86,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  alternates: {
-    canonical: "https://dailyworld.app",
   },
   verification: {
     google: process.env.GOOGLE_SEARCH_CONSOLE_VERIFICATION,
@@ -115,9 +108,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="icon" href="/dailyworld-public-logo/favicon.ico" sizes="any" />
-        <link rel="icon" href="/dailyworld-public-logo/icon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/dailyworld-public-logo/apple-icon.png" />
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com"

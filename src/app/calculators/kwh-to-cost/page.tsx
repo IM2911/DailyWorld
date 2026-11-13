@@ -1,11 +1,23 @@
+import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { KWhToCostCalculator } from "@/components/calculators/kwh-to-cost";
+import { pageMetadata } from "@/lib/seo";
+
+const title = "kWh to Cost Calculator";
+const description =
+  "Convert kilowatt‑hours of electricity usage into a dollar cost based on your rate.";
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: "/calculators/kwh-to-cost",
+});
 
 export default function KWhToCostPage() {
   return (
     <CalculatorLayout
-      title="kWh to Cost Calculator"
-      description="Convert kilowatt‑hours of electricity usage into a dollar cost based on your rate."
+      title={title}
+      description={description}
       formula="Cost = kWh × Price per kWh"
       example="500 kWh at $0.15/kWh costs $75.00."
     >

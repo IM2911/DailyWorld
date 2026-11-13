@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -33,6 +35,16 @@ const features = [
     link: "Find ways to save",
   },
 ];
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "DailyWorld — Electricity Cost Calculators & Energy Guides",
+    description:
+      "Free electricity cost calculators, appliance energy guides, and energy-saving tips. Calculate how much your appliances cost to run, compare electricity prices, and reduce your household energy bill.",
+    path: "/",
+  }),
+  title: { absolute: "DailyWorld — Electricity Cost Calculators & Energy Guides" },
+};
 
 export default function HomePage() {
   return (

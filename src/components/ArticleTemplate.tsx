@@ -2,9 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, Clock } from "lucide-react";
 import { AdInArticle } from "@/components/AdInArticle";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/seo";
 
 type ArticleTemplateProps = {
   title: string;
+  description?: string;
+  /** Absolute canonical URL of the article, used in the JSON-LD. */
+  url?: string;
   content: string;
   category?: string;
   publishedAt?: string;
@@ -14,6 +18,8 @@ type ArticleTemplateProps = {
 
 export const ArticleTemplate: React.FC<ArticleTemplateProps> = ({
   title,
+  description,
+  url,
   content,
   category = "Guide",
   publishedAt,
@@ -24,23 +30,25 @@ export const ArticleTemplate: React.FC<ArticleTemplateProps> = ({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: title,
+    description: description ?? title,
+    image: absoluteUrl(DEFAULT_OG_IMAGE.url),
+    ...(url && { url }),
     author: {
       "@type": "Organization",
-      name: "DailyWorld",
-      url: "https://dailyworld.app",
+      name: SITE_NAME,
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
-      name: "DailyWorld",
+      name: SITE_NAME,
       logo: {
         "@type": "ImageObject",
-        url: "https://dailyworld.app/dailyworld-public-logo/icon.png",
+        url: absoluteUrl("/dailyworld-public-logo/apple-icon.png"),
       },
     },
-    description: title,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://dailyworld.app/guides",
+      "@id": url ?? absoluteUrl("/guides"),
     },
   };
 
@@ -48,7 +56,10 @@ export const ArticleTemplate: React.FC<ArticleTemplateProps> = ({
     <article className="container-page py-10 md:py-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          // Escape "<" so the JSON can never close the script tag early.
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
       <div className="article-shell">
         <nav className="breadcrumb mb-8" aria-label="Breadcrumb">

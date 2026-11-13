@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { guides } from "@/lib/guides";
 import { ArrowUpRight, BookOpen, Clock } from "lucide-react";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Energy Guides",
+  description:
+    "Clear, practical guides to electricity, appliance energy use and efficiency, to help you make confident decisions about energy at home.",
+  path: "/guides",
+});
 
 export default function GuidesPage() {
   return (

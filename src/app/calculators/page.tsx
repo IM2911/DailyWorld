@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import {
   Calculator,
@@ -33,6 +35,13 @@ const calculators = [
   { href: "/calculators/energy-savings", label: "Energy Savings Calculator", icon: BatteryCharging, desc: "Estimate potential energy savings." },
   { href: "/calculators/price-comparison", label: "Electricity Price Comparison", icon: DollarSign, desc: "Compare electricity rates and find savings." },
 ];
+
+export const metadata: Metadata = pageMetadata({
+  title: "Electricity Cost Calculators",
+  description:
+    "Free calculators to estimate what household appliances cost to run, convert kWh to cost, estimate your monthly electricity bill and work out energy savings.",
+  path: "/calculators",
+});
 
 export default function CalculatorsPage() {
   return (

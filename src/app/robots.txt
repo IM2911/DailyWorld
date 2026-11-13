@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /admin/
-Disallow: /api/
-Allow: /
-
-# Sitemaps
-Sitemap: https://dailyworld.app/sitemap.xml

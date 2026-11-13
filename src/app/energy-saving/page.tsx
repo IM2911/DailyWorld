@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Energy Saving Tips",
+  description:
+    "Practical ways to cut household electricity use across lighting, heating and cooling, appliances and water heating.",
+  path: "/energy-saving",
+});
+
 export default function EnergySavingPage() {
   return (
     <div className="container-page py-12">

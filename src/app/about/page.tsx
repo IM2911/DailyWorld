@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "About Us",
+  description:
+    "DailyWorld is a free, independent resource with electricity cost calculators and guides that help households understand and reduce their energy use.",
+  path: "/about",
+});
+
 export default function AboutPage() {
   return (
     <div className="container-page py-12">
