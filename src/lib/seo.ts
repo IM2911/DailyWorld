@@ -3,15 +3,17 @@ import type { Metadata } from "next";
 export const SITE_NAME = "DailyWorld";
 
 /**
- * Public origin of the site, without a trailing slash: the Cloudflare
- * workers.dev address it is deployed to. Set NEXT_PUBLIC_SITE_URL to change it
- * (for example to a custom domain); canonical URLs, Open Graph, the sitemap and
- * robots.txt all read from here. The static home page (public/index.html) has
- * the same origin written in its canonical and og: tags; change it there too.
+ * Public origin of the site, without a trailing slash: dailyworld.pages.dev,
+ * the Cloudflare Pages address that proxies to the Worker
+ * (cloudflare-pages-proxy/). It is the address registered in AdSense; the
+ * Worker's own workers.dev address serves the same pages but is not canonical.
+ * Set NEXT_PUBLIC_SITE_URL to change it (for example to a custom domain);
+ * canonical URLs, Open Graph, the sitemap and robots.txt all read from here.
+ * The static home page (public/index.html) has the same origin written in its
+ * canonical and og: tags; change it there too.
  */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://dailyworld.dailyworldonline.workers.dev"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://dailyworld.pages.dev"
 ).replace(/\/+$/, "");
 
 /** Public contact address (NEXT_PUBLIC_CONTACT_EMAIL), or null when not set. */

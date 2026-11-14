@@ -1,3 +1,1 @@
-# Google AdSense is not configured yet.
-# Set NEXT_PUBLIC_ADSENSE_PUBLISHER_ID in .env.local and rebuild;
-# scripts/sync-adsense.mjs writes this file.
+google.com, pub-7078476725987475, DIRECT, f08c47fec0942fa0

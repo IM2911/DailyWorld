@@ -25,10 +25,14 @@ DailyWorld is a premium platform providing precise electricity cost calculators 
   `Header` and `Footer` components.
 - **Fonts are self-hosted**: `next/font` for the Next pages, `public/assets/fonts` for the home page.
 - The taste-skill deal, checks and waivers are recorded in `.taste-skill/`.
-- **Site address**: the live site is `https://dailyworld.dailyworldonline.workers.dev`
-  (Cloudflare Workers). It is the default of `SITE_URL` in `src/lib/seo.ts` and is also
-  written in the canonical and `og:` tags of `public/index.html`. To move to a custom domain,
-  set `NEXT_PUBLIC_SITE_URL` and update those tags. (`dailyworld.app` belongs to someone else.)
+- **Site address**: the public address is `https://dailyworld.pages.dev`. The site runs as the
+  Cloudflare Worker `dailyworld` (also reachable at `dailyworld.dailyworldonline.workers.dev`);
+  the Pages project in `cloudflare-pages-proxy/` forwards every request for `dailyworld.pages.dev`
+  to that Worker. AdSense needs a registrable domain, which `pages.dev` subdomains are and
+  `workers.dev` sub-subdomains are not. The address is the default of `SITE_URL` in
+  `src/lib/seo.ts` and is also written in the canonical and `og:` tags of `public/index.html`.
+  To move to a custom domain, set `NEXT_PUBLIC_SITE_URL` and update those tags.
+  (`dailyworld.app` belongs to someone else.)
 
 ## Google AdSense
 

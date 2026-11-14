@@ -1,0 +1,20 @@
+// Cloudflare Pages project "dailyworld" -> https://dailyworld.pages.dev
+//
+// Why this exists: AdSense only accepts a site whose address is a registrable
+// domain. pages.dev is on the Public Suffix List, so dailyworld.pages.dev
+// qualifies; the Worker's own address (dailyworld.dailyworldonline.workers.dev)
+// is a subdomain of dailyworldonline.workers.dev and is rejected.
+//
+// This Pages project serves nothing itself: public/_worker.js hands every
+// request to the "dailyworld" Worker (the OpenNext build in the parent folder)
+// through a service binding. Deploy it once, from this folder, with:
+//   npx wrangler pages deploy --branch main
+// Redeploy only if this folder changes; site updates go through
+// `npm run deploy` in the parent folder as usual.
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "dailyworld",
+  "pages_build_output_dir": "./public",
+  "compatibility_date": "2026-11-10",
+  "services": [{ "binding": "SITE", "service": "dailyworld" }]
+}
