@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { HeatingCostCalculator } from "@/components/calculators/heating-cost";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Heating Cost Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function HeatingCostPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["heating-cost"]}
       title={title}
       description={description}
       formula="Cost = (Watts / 1000) × Hours × Price per kWh"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { MonthlyBillCalculator } from "@/components/calculators/monthly-bill";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Monthly Electricity Bill Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function MonthlyBillPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["monthly-bill"]}
       title={title}
       description={description}
       formula="Bill = (kWh × Price per kWh) + Fixed Fees"

@@ -3,7 +3,6 @@ import { DM_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "./analytics";
 import { AdUnit } from "@/components/ad-unit";
-import { CookieConsent } from "@/components/cookie-consent";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
@@ -155,7 +154,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <CookieConsent />
         <Analytics />
       </body>
     </html>

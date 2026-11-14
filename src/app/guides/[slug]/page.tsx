@@ -51,7 +51,10 @@ export default async function GuidePage({ params }: PageProps) {
   }
 
   // Find related guides (exclude current guide)
-  const relatedGuides = guides.filter((g) => g.slug !== guide.slug).slice(0, 3);
+  // The next three guides in the list (wrapping around), so every guide links
+  // to different articles instead of all pointing at the first three.
+  const index = guides.indexOf(guide);
+  const relatedGuides = [1, 2, 3].map((k) => guides[(index + k) % guides.length]);
 
   return (
     <ArticleTemplate
@@ -59,6 +62,7 @@ export default async function GuidePage({ params }: PageProps) {
       description={guide.description}
       url={absoluteUrl(`/guides/${guide.slug}`)}
       content={guide.content}
+      readingTime={guide.readingTime}
       relatedGuides={relatedGuides}
     />
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { PriceComparisonCalculator } from "@/components/calculators/price-comparison";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Electricity Price Comparison Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function PriceComparisonPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["price-comparison"]}
       title={title}
       description={description}
       formula="Cost = kWh × Price per kWh"

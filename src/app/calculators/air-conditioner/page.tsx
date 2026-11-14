@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { AirConditionerCalculator } from "@/components/calculators/air-conditioner";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Air Conditioner Electricity Cost Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function AirConditionerPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["air-conditioner"]}
       title={title}
       description={description}
       formula="Cost = (Watts / 1000) × Hours × Days × Price per kWh"

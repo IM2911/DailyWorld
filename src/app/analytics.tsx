@@ -1,9 +1,16 @@
 import Script from "next/script";
 
+/**
+ * Google Analytics 4, only when NEXT_PUBLIC_GA_MEASUREMENT_ID holds a real
+ * measurement ID ("G-…"); empty values and placeholders such as
+ * "G-XXXXXXXXXX" load nothing. Consent defaults to denied; Google's consent
+ * message (AdSense Privacy & messaging) updates it when the visitor chooses.
+ * If you turn this on, list Google Analytics in the privacy and cookie pages.
+ */
 export function Analytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() ?? "";
 
-  if (!gaId) {
+  if (!/^G-[A-Z0-9]{4,}$/i.test(gaId) || /X{4,}/i.test(gaId)) {
     return null;
   }
 

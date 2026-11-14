@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { WaterHeaterCalculator } from "@/components/calculators/water-heater";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Water Heater Electricity Cost Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function WaterHeaterPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["water-heater"]}
       title={title}
       description={description}
       formula="Cost = (Watts / 1000) × Hours × Price per kWh"

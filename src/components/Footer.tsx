@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { PrivacySettingsLink } from "@/components/privacy-settings-link";
 
 // The same dark footer as the home page (public/index.html, footer-dark with close-type):
 // the main action once more, the name set large, the link columns and the legal row.
@@ -83,6 +84,8 @@ export function Footer() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
             <Link href="/privacy-policy">Privacy</Link>
             <Link href="/terms-of-use">Terms</Link>
+            <Link href="/cookie-policy">Cookies</Link>
+            <PrivacySettingsLink className="hover:underline" />
             <a href="/sitemap.xml">Sitemap</a>
           </div>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { DishwasherCalculator } from "@/components/calculators/dishwasher";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Dishwasher Electricity Cost Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function DishwasherPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["dishwasher"]}
       title={title}
       description={description}
       formula="Cost = (Watts / 1000) × Hours per Cycle × Price per kWh"

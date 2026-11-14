@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { ApplianceEnergyCalculator } from "@/components/calculators/appliance-energy";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Appliance Energy Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ApplianceEnergyPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["appliance-energy"]}
       title={title}
       description={description}
       formula="Energy (kWh) = (Watts / 1000) × Hours Used × Days"

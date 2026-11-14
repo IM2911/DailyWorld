@@ -82,6 +82,72 @@ export default function CalculatorsPage() {
           );
         })}
       </div>
+
+      <section className="article-prose mt-6 max-w-3xl">
+        <h2>Which calculator should I use?</h2>
+        <ul>
+          <li>
+            <strong>You know an appliance&apos;s watts:</strong> start with the{" "}
+            <Link href="/calculators/electricity-cost">electricity cost calculator</Link>{" "}
+            for the cost, or the{" "}
+            <Link href="/calculators/appliance-energy">appliance energy calculator</Link>{" "}
+            for the kWh.
+          </li>
+          <li>
+            <strong>You have a kWh figure</strong> from a bill, an energy label or a
+            smart meter: use{" "}
+            <Link href="/calculators/kwh-to-cost">kWh to cost</Link>.
+          </li>
+          <li>
+            <strong>The appliance cycles on and off</strong> (fridge, air conditioner,
+            heater, water heater): use its own calculator, which accounts for the
+            time it actually draws power.
+          </li>
+          <li>
+            <strong>You are deciding whether to replace something:</strong> the{" "}
+            <Link href="/calculators/energy-savings">energy savings calculator</Link>{" "}
+            shows the yearly saving and the payback period.
+          </li>
+          <li>
+            <strong>You are choosing a tariff or supplier:</strong> compare prices with
+            the <Link href="/calculators/price-comparison">price comparison calculator</Link>{" "}
+            and see the effect of fixed charges with the{" "}
+            <Link href="/calculators/monthly-bill">monthly bill calculator</Link>.
+          </li>
+        </ul>
+
+        <h2>Getting accurate results</h2>
+        <p>
+          Every calculator uses the same relationship: kWh equals watts multiplied
+          by hours and divided by 1,000, and cost equals kWh multiplied by your
+          price per kWh. The result is only as good as those three inputs:
+        </p>
+        <ul>
+          <li>
+            <strong>Power:</strong> read it from the appliance&apos;s rating plate,
+            energy label or manual. The rating is often a maximum; for appliances
+            that cycle, the average is lower. A plug-in energy meter gives the real
+            figure.
+          </li>
+          <li>
+            <strong>Hours:</strong> count the time the appliance actually runs, not
+            the time it is plugged in.
+          </li>
+          <li>
+            <strong>Price:</strong> use the unit rate on your latest bill. Fixed daily
+            or monthly charges do not change with consumption, so leave them out
+            when estimating the cost of a single appliance.
+          </li>
+        </ul>
+        <p>
+          The calculations run in your browser; nothing you enter is sent to us.
+          For the full method, read{" "}
+          <Link href="/guides/how-to-calculate-electricity-consumption">
+            how to calculate electricity consumption
+          </Link>
+          .
+        </p>
+      </section>
     </div>
   );
 }

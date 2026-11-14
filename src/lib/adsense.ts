@@ -17,6 +17,11 @@
 declare global {
   interface Window {
     adsbygoogle?: unknown[];
+    /** Google's consent message (AdSense Privacy & messaging). */
+    googlefc?: {
+      callbackQueue?: unknown[];
+      showRevocationMessage?: () => void;
+    };
   }
 }
 

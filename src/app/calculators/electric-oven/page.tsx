@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { ElectricOvenCalculator } from "@/components/calculators/electric-oven";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Electric Oven Cost Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ElectricOvenPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["electric-oven"]}
       title={title}
       description={description}
       formula="Cost = (Watts / 1000) × Hours × Price per kWh"

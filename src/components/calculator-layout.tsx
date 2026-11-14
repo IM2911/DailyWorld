@@ -11,6 +11,8 @@ interface CalculatorLayoutProps {
   children: ReactNode;
   relatedCalculators?: { href: string; label: string }[];
   relatedGuides?: { href: string; label: string }[];
+  /** Explanatory HTML shown under the calculator (src/lib/calculator-notes.ts). */
+  notes?: string;
 }
 
 export function CalculatorLayout({
@@ -21,6 +23,7 @@ export function CalculatorLayout({
   children,
   relatedCalculators,
   relatedGuides,
+  notes,
 }: CalculatorLayoutProps) {
   return (
     <div className="container-page py-8 md:py-12">
@@ -96,6 +99,14 @@ export function CalculatorLayout({
           )}
         </aside>
       </div>
+
+      {notes && (
+        <section
+          className="article-prose mt-4 max-w-3xl"
+          aria-label={`About the ${title}`}
+          dangerouslySetInnerHTML={{ __html: notes }}
+        />
+      )}
     </div>
   );
 }

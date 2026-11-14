@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { GamingPCCalculator } from "@/components/calculators/gaming-pc";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Gaming PC Electricity Cost Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function GamingPCPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["gaming-pc"]}
       title={title}
       description={description}
       formula="Cost = (Watts / 1000) × Hours × Price per kWh"

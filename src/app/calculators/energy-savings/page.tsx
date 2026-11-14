@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorLayout } from "@/components/calculator-layout";
 import { EnergySavingsCalculator } from "@/components/calculators/energy-savings";
 import { pageMetadata } from "@/lib/seo";
+import { calculatorNotes } from "@/lib/calculator-notes";
 
 const title = "Energy Savings Calculator";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function EnergySavingsPage() {
   return (
     <CalculatorLayout
+      notes={calculatorNotes["energy-savings"]}
       title={title}
       description={description}
       formula="Savings = (Old Watts - New Watts) × Hours × Price per kWh"
