@@ -1,0 +1,457 @@
+{
+ "start": "2026-11-13T14:36:22.302Z",
+ "round": 1,
+ "idle": 0,
+ "errors": 0,
+ "status": "pass",
+ "history": [
+  {
+   "at": "2026-11-13T15:56:40.136Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 1,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-13T15:59:54.252Z",
+   "mode": "manual",
+   "status": "pass",
+   "fails": 0,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": "public/index.html",
+  "url": null,
+  "root": "public",
+  "kind": "software",
+  "category": "electricity cost calculators",
+  "primary": "Find your appliance",
+  "rounds": 3,
+  "start": "2026-11-13T14:36:22.302Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "e1c737d28c47ca18:4465fa61",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "cdca2e41e58ec7a8",
+ "page": "public/index.html",
+ "found": {
+  "fails": [
+   {
+    "check": "container-edges",
+    "where": "section#app > div.mo-io__stage",
+    "msg": "a child of section 2 beside its .wrap is no valid background layer: not img, picture, video or canvas; does not span the screen from 0 to 1440px; z-index 20, not 0 (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "section#app > div.mo-io__stage"
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "flush",
+    "where": "section#app > div.mo-io__stage > div.mo-io__cover",
+    "msg": "its first line sits 17px under the top edge of section#app, where the ground changes",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "scroll-reveal",
+    "where": "div.wrap > div.grid.grid--top > div.span-5.stack-4 > p.mo-wh__text \"Your bill shows one total for the month.\"",
+    "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-headings",
+    "where": "div.grid.grid--top > div.faq.span-6 > div.faq__item:nth-of-type(1) > h3 \"Is DailyWorld free?\"",
+    "msg": "\"Is DailyWorld free?\" names no product, part, place or section (the one brand line a page may have)",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "text-contrast",
+    "where": "div.ui-win__main > ul.ui-win__rows > li.ui-win__row:nth-of-type(5) > span.ui-avatar \"OV\"",
+    "msg": "9 lines of text in drawn mocks read under 4.5:1 (5 colour pairs), the worst \"OV\" in #ae7c7c on #483637 at 3.21:1",
+    "fix": "lift the mocks' muted text (labels, meta, initials) to 4.5:1 on their own panel, or set it larger",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#app / section#method",
+    "msg": "uneven space at the edge of a band: 116px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "div.nav__menu > div.wrap.grid > div.menu-col.span-3:nth-of-type(1) > a:nth-of-type(1) \"RefrigeratorCounts the compressor's hour\"",
+    "msg": "\"RefrigeratorCounts the compressor's hour\" goes to /calculators/refrigerator, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "div.nav__menu > div.wrap.grid > div.menu-col.span-3:nth-of-type(1) > a:nth-of-type(2) \"DishwasherThe cost of each load\"",
+    "msg": "\"DishwasherThe cost of each load\" goes to /calculators/dishwasher, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "div.nav__menu > div.wrap.grid > div.menu-col.span-3:nth-of-type(1) > a:nth-of-type(3) \"Washing machineThe cost of each load\"",
+    "msg": "\"Washing machineThe cost of each load\" goes to /calculators/washing-machine, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "div.nav__menu > div.wrap.grid > div.menu-col.span-3:nth-of-type(2) > a:nth-of-type(1) \"Air conditionerA summer month, worked ou\"",
+    "msg": "\"Air conditionerA summer month, worked ou\" goes to /calculators/air-conditioner, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "div.nav__menu > div.wrap.grid > div.menu-col.span-3:nth-of-type(2) > a:nth-of-type(2) \"Space heaterA winter month, worked out\"",
+    "msg": "\"Space heaterA winter month, worked out\" goes to /calculators/heating-cost, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "div.nav__menu > div.wrap.grid > div.menu-col.span-3:nth-of-type(2) > a:nth-of-type(3) \"Water heaterThe tank's hours a day\"",
+    "msg": "\"Water heaterThe tank's hours a day\" goes to /calculators/water-heater, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "div.nav__menu > div.wrap.grid > div.menu-col.span-3:nth-of-type(3) > a:nth-of-type(1) \"Monthly billUsage plus fixed fees\"",
+    "msg": "\"Monthly billUsage plus fixed fees\" goes to /calculators/monthly-bill, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "div.nav__menu > div.wrap.grid > div.menu-col.span-3:nth-of-type(3) > a:nth-of-type(2) \"Price comparisonThree rates side by side\"",
+    "msg": "\"Price comparisonThree rates side by side\" goes to /calculators/price-comparison, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "header.nav > div.wrap.nav__bar > a.nav__logo \"DailyWorld\"",
+    "msg": "\"DailyWorld\" opens a section headed \"Home electricity cost calculators\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "label-centre",
+    "where": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"Find your appliance\"",
+    "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right)",
+    "fix": "centre the label in its button, or fill the empty side with an icon",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "stranded-action",
+    "where": "div.wrap > div.hero-text.grid > div.span-3.start-10 > a.btn.btn--primary \"Find your appliance\"",
+    "msg": "stands 720px across from the nearest text of its block (\"Home electricity cost calculat\")",
+    "fix": "put the button under or beside the text it belongs to",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "div.ui-win__main > ul.ui-win__rows > li.ui-win__row:nth-of-type(9) > span.ui-avatar \"WM\"",
+    "msg": "3 lines of div.ui.ui-panel fade out under its edge (\"WM\", \"500 W · 1.5 h a load\", \"$0.11\"): drawn at a fraction of #9c8960 on #413b2d, half-erased (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-length",
+    "where": "section#questions \"Questions\"",
+    "msg": "2 sections over 90 words a screen outside the UI mocks (\"Questions\" 171, \"All 15 calculators. Each\" 98); 62 words a screen across the page (558 words in 9 screens): a tech page says it in about 80 or fewer",
+    "fix": "cut every section to its heading, one line and the product UI: the UI says the rest; no second paragraph, no list of feature sentences",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-current",
+    "where": "header.nav",
+    "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
+    "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "action-repeat",
+    "where": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"find your appliance\"",
+    "msg": "\"find your appliance\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-air",
+    "where": "section#method / section#lamp",
+    "msg": "505px of air between the content of these two sections: 128-480px (64-600px WARN) (SR-3)",
+    "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "container-edges",
+    "where": "section#app > div.mo-io__stage > div.mo-io__cover",
+    "msg": "a box runs 17-1422px, outside the container lines of section 2 at 80-1360px: full width is for background layers and grounds only (it is in a scroll scene: told as a WARN) (SR-6)",
+    "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav",
+    "where": "header.nav > div.wrap.nav__bar > button.nav__toggle",
+    "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge",
+    "fix": "start the nav's first item and end its last on the content's two edges",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "ul.ui-toggles__list > li.ui-tg:nth-of-type(1) > span.ui-tg__text > span.ui-tg__sub \"On standby all day\"",
+    "msg": "cut 8px at the bottom by the overflow of div.group > div.grid > a.card.card--row:nth-of-type(2) > div.panel: a fragment run out through its panel's edge",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "div.ui.ui-panel > div.mini__item:nth-of-type(4) > div > span \"Lighting, fridge, washer, dryer and the \"",
+    "msg": "cut 14px at the bottom by the overflow of section#statement > div.wrap > div.grid.grid--top > div.frame.frame--lit: a fragment run out through its panel's edge (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "text-contrast",
+    "where": "div.calc__body > div.calc__out > div.calc__row:nth-of-type(2) > span \"Per day\"",
+    "msg": "9 lines of text in drawn mocks read under 4.5:1 (1 colour pair), the worst \"Per day\" in #eef0f3 on #eef0f3 at 1:1",
+    "fix": "lift the mocks' muted text (labels, meta, initials) to 4.5:1 on their own panel, or set it larger",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "main#top > section.hero.hero--triptych / section#app",
+    "msg": "117px between these sections, -43% against the median 205px of gaps at a change of ground",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#questions / footer#contact",
+    "msg": "262px between these sections, +28% against the median 205px of gaps at a change of ground",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "proximity",
+    "where": "section#statement > div.wrap > div.grid.grid--top > div.frame.frame--lit \"Where a bill goes Your bill shows one to\"",
+    "msg": "stacked at this width, the visual starts 11px under the text and buttons above it (\"Where a bill goes Your bill sh\"): it reads glued to them (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "div.sheet > div.sheet__body > div.sheet__line:nth-of-type(4) > span:nth-of-type(2) \"$43.20\"",
+    "msg": "a line of div.frame.frame--split fades out under its edge (\"$43.20\"): drawn at a fraction of #0b0c0e on #e2e5ea, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "div.sheet > div.sheet__body > div.sheet__line:nth-of-type(7) > span:nth-of-type(1) \"× 3 summer months\"",
+    "msg": "2 lines of div.frame.frame--split fade out under its edge (\"× 3 summer months\", \"$129.60\"): drawn at a fraction of #0b0c0e on #e2e5ea, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "div.ui.ui-panel > ul.ui-checks__list > li.ui-check:nth-of-type(1) > span.ui-check__label \"Check the windows for drafts\"",
+    "msg": "a line of div.ui.ui-panel fades out under its edge (\"Check the windows for \"): drawn at a fraction of #5d6470 on #fffeff, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "div.wrap > div.grid > a.card.card--row:nth-of-type(1) > p \"One kilowatt-hour is 1,000 watts for one\"",
+    "msg": "a line of a.card.card--row:nth-of-type(1) fades out under its edge (\"One kilowatt-hour is 1\"): drawn at a fraction of #27282b on #eef0f3, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "div.at-rise.fit > div.ui.ui-panel > div.tou__strip > span.tou__off:nth-of-type(1) \"Night\"",
+    "msg": "4 lines of div.ui.ui-panel fade out under its edge (\"Night\", \"Day\", \"Peak\"): drawn at a fraction of #0b0c0e on #d3deff, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "article.card.card--row:nth-of-type(3) > ul.rows > li:nth-of-type(1) > a.rows__name \"Electricity cost\"",
+    "msg": "2 lines of article.card.card--row:nth-of-type(3) fade out under its edge (\"Electricity cost\", \"$36.00 a month\"): drawn at a fraction of #0b0c0e on #eef0f3, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "empty-area",
+    "where": "footer#contact \"Find what your appliances cost\"",
+    "msg": "39% of the section is empty: 592px of empty rows between its content, in its 1491px of rows (WARN over 35%, FAIL over 50%)",
+    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 166,
+   "layout": 4
+  }
+ },
+ "open": [],
+ "waived": [
+  {
+   "check": "container-edges",
+   "where": "section#app > div.mo-io__stage",
+   "msg": "a child of section 2 beside its .wrap is no valid background layer: not img, picture, video or canvas; does not span the screen from 0 to 1440px; z-index 20, not 0 (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "section#app > div.mo-io__stage"
+   ],
+   "reason": "The stage is the iris-opens moment's own cover (assets/moments/iris-opens, unchanged): an inset layer of the previous ground that the moment draws while the disc opens and takes off the screen once it has (.is-open). It holds no content, never touches the section's edges, and the section's one in-flow child is its .wrap."
+  }
+ ],
+ "warnCount": 36,
+ "at": "2026-11-13T15:59:54.253Z"
+}

@@ -1,0 +1,41 @@
+{
+ "palettes": [
+  "cool-grey-cobalt",
+  "cool-grey-cobalt",
+  "cool-grey-cobalt",
+  "cool-grey-cobalt"
+ ],
+ "types": [
+  "geist",
+  "outfit",
+  "instrument",
+  "outfit"
+ ],
+ "dealt": [
+  "geist",
+  "outfit",
+  "instrument"
+ ],
+ "moments": [
+  {
+   "id": "marquee-row",
+   "at": "2026-11-13T14:37:10.824Z",
+   "seed": "f0b90df3"
+  },
+  {
+   "id": "liquid-type",
+   "at": "2026-11-13T14:37:10.824Z",
+   "seed": "f0b90df3"
+  },
+  {
+   "id": "iris-opens",
+   "at": "2026-11-13T14:56:35.701Z",
+   "seed": "9df047a6"
+  },
+  {
+   "id": "word-highlight",
+   "at": "2026-11-13T14:56:35.701Z",
+   "seed": "9df047a6"
+  }
+ ]
+}

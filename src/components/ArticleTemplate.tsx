@@ -71,7 +71,7 @@ export const ArticleTemplate: React.FC<ArticleTemplateProps> = ({
           <span>{category}</span>
         </nav>
 
-        <header className="mb-10 border-b border-border pb-9">
+        <header className="dw-enter mb-10 border-b border-border pb-9">
           <span className="section-eyebrow">{category}</span>
           <h1 className="mt-4 mb-5 text-4xl md:text-5xl">{title}</h1>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">

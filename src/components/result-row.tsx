@@ -29,8 +29,11 @@ export function ResultCard({
   return (
     <div className="result-card">
       <p className="result-card-label">{title}</p>
-      <p className="result-card-value">
-        {value}
+      <p className="result-card-value" aria-live="polite">
+        {/* keyed by the value: a new figure steps in (dw-tick in globals.css) */}
+        <b key={value} className="dw-tick">
+          {value}
+        </b>
         {unit && <span>{unit}</span>}
       </p>
       {note && <p className="result-card-note">{note}</p>}

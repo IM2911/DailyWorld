@@ -10,8 +10,8 @@ export const metadata: Metadata = pageMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="container-page py-12">
-      <h1 className="text-3xl font-bold mb-6 text-slate-900 dark:text-slate-50">About DailyWorld</h1>
+    <div className="container-page dw-enter py-12">
+      <h1 className="mb-6 text-4xl font-normal text-slate-900 md:text-5xl dark:text-slate-50">About DailyWorld</h1>
       <section className="prose">
         <p>DailyWorld is a free, independent resource dedicated to helping households understand and reduce their electricity consumption.</p>
         <p>Our mission is to provide accurate, easy‑to‑use calculators, clear guides, and actionable tips that empower users worldwide to save money and lower their carbon footprint.</p>

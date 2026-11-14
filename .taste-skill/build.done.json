@@ -1,0 +1,11 @@
+{
+ "page": "public/index.html",
+ "url": null,
+ "root": "public",
+ "kind": "software",
+ "category": "electricity cost calculators",
+ "primary": "Find your appliance",
+ "rounds": 3,
+ "start": "2026-11-13T14:36:22.302Z",
+ "by": "gate.mjs --start"
+}

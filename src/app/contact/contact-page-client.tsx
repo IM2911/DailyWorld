@@ -70,12 +70,12 @@ export function ContactPageClient() {
   };
 
   return (
-    <div className="container-page py-12 max-w-3xl mx-auto">
+    <div className="container-page dw-enter py-12 max-w-3xl mx-auto">
       <div className="mb-8">
         <span className="eyebrow text-brand-600 font-semibold tracking-wide uppercase text-xs">
           Get in touch
         </span>
-        <h1 className="text-3xl font-bold mt-2 mb-4 text-slate-900 dark:text-slate-50">
+        <h1 className="mb-4 mt-2 text-4xl font-normal text-slate-900 md:text-5xl dark:text-slate-50">
           Contact Us
         </h1>
         <p className="text-slate-600 dark:text-slate-300 leading-relaxed">

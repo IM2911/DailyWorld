@@ -10,8 +10,8 @@ export const metadata: Metadata = pageMetadata({
 
 export default function EnergySavingPage() {
   return (
-    <div className="container-page py-12">
-      <h1 className="text-3xl font-bold mb-6 text-slate-900 dark:text-slate-50">Energy Saving Tips</h1>
+    <div className="container-page dw-enter py-12">
+      <h1 className="mb-6 text-4xl font-normal text-slate-900 md:text-5xl dark:text-slate-50">Energy Saving Tips</h1>
       <section className="prose">
         <p>Reducing your electricity consumption not only saves money but also helps the environment. Below are practical, proven strategies you can implement today.</p>
         <h2>Lighting</h2>

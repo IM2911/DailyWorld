@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { DM_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "./analytics";
 import { AdUnit } from "@/components/ad-unit";
@@ -8,18 +8,21 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
-
+// Outfit + DM Mono: the pairing the taste-skill deal gave the home page
+// (public/index.html, built with the kit), so every page shares one type system.
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
   display: "swap",
   preload: true,
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
+  display: "swap",
+  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -104,7 +107,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable}`}
+      className={`${outfit.variable} ${dmMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -127,7 +130,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.className} min-h-screen flex flex-col`}
+        className={`${outfit.className} min-h-screen flex flex-col`}
       >
         <a
           href="#main-content"

@@ -1,0 +1,7 @@
+[
+  {
+    "check": "container-edges",
+    "target": "section#app > div.mo-io__stage",
+    "reason": "The stage is the iris-opens moment's own cover (assets/moments/iris-opens, unchanged): an inset layer of the previous ground that the moment draws while the disc opens and takes off the screen once it has (.is-open). It holds no content, never touches the section's edges, and the section's one in-flow child is its .wrap."
+  }
+]

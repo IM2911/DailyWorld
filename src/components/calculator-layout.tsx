@@ -32,14 +32,14 @@ export function CalculatorLayout({
         <span>{title}</span>
       </nav>
 
-      <header className="mb-8 md:mb-10 max-w-3xl">
+      <header className="dw-enter mb-8 md:mb-10 max-w-3xl">
         <span className="section-eyebrow">Energy calculator</span>
         <h1 className="mt-3 text-3xl md:text-4xl">{title}</h1>
         <p className="mt-4 max-w-3xl text-base md:text-lg">{description}</p>
       </header>
 
       <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-3 lg:gap-8">
-        <section className="calculator-panel min-w-0 lg:col-span-2" aria-label={`${title} form`}>
+        <section className="calculator-panel dw-settle min-w-0 lg:col-span-2" aria-label={`${title} form`}>
           {children}
         </section>
 

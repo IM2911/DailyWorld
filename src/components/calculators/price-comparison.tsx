@@ -62,7 +62,7 @@ export function PriceComparisonCalculator() {
               </p>
               <div className="mt-2 flex justify-between items-center">
                 <span className="text-xs text-slate-500">Monthly cost:</span>
-                <span className="font-bold text-brand-600">
+                <span className="font-medium text-brand-600">
                   {formatCurrency(res.monthlyCost)}
                 </span>
               </div>

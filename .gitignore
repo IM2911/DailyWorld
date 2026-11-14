@@ -16,3 +16,11 @@ dist/
 .wrangler
 .dev.vars*
 !.dev.vars.example
+
+# taste-skill working files (Chrome profiles, check crops, screenshots, scratch output)
+/.taste-skill/chrome-*/
+/.taste-skill/gate/
+/.taste-skill/shots/
+/.taste-skill/consistency*.txt
+/.taste-skill/root-*.css
+/public/.taste-skill/

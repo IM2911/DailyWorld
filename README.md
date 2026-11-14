@@ -12,6 +12,20 @@ DailyWorld is a premium platform providing precise electricity cost calculators 
 - **Responsive Design**: Optimized for mobile, tablet, and desktop
 - **Performance**: Fast loading, optimized for Core Web Vitals
 
+## Home page and design system
+
+- **The home page is a static file, `public/index.html`**, built with the taste-skill kit
+  (`public/assets`: its system, motion, moments and the 3D lamp object). `next.config.js`
+  rewrites `/` to it under `next dev` and `next start`; on Cloudflare the assets binding serves
+  it for `/` before the worker runs. Edit the home page there, not in `src/app`.
+- **Do not edit `public/assets`**: those are the kit's own files, compared against the skill by
+  its checks. Page-only CSS lives in the `<style>` block of `public/index.html`.
+- **Every other page** is Next.js and shares the same look through `src/app/globals.css`
+  (palette cool grey and cobalt `#1f2de6`, Outfit + DM Mono, round corners) and the
+  `Header` and `Footer` components.
+- **Fonts are self-hosted**: `next/font` for the Next pages, `public/assets/fonts` for the home page.
+- The taste-skill deal, checks and waivers are recorded in `.taste-skill/`.
+
 ## Technologies
 
 - **Framework**: Next.js 16
