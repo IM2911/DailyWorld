@@ -13,7 +13,7 @@ export default function CookiePolicyPage() {
   return (
     <div className="container-page dw-enter py-12">
       <h1 className="mb-6 text-4xl font-normal text-slate-900 md:text-5xl dark:text-slate-50">Cookie Policy</h1>
-      <section className="prose">
+      <section className="article-prose max-w-3xl">
         <p>
           <em>Last updated: November 14, 2026</em>
         </p>
