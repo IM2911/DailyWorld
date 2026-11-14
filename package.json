@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/sync-adsense.mjs",
     "build": "next build",
+    "predev": "node scripts/sync-adsense.mjs",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",

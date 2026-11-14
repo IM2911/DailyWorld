@@ -7,6 +7,7 @@ import { CookieConsent } from "@/components/cookie-consent";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { ADSENSE_CLIENT, ADSENSE_SCRIPT_SRC, AD_SLOTS } from "@/lib/adsense";
 
 // Outfit + DM Mono: the pairing the taste-skill deal gave the home page
 // (public/index.html, built with the kit), so every page shares one type system.
@@ -93,10 +94,11 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.GOOGLE_SEARCH_CONSOLE_VERIFICATION,
   },
-  other: {
-    "adsense-global": process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "",
-    "google-adsense": process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "",
-  },
+  // AdSense site verification. The static home page carries the same tag,
+  // written by scripts/sync-adsense.mjs.
+  ...(ADSENSE_CLIENT && {
+    other: { "google-adsense-account": ADSENSE_CLIENT },
+  }),
 };
 
 export default function RootLayout({
@@ -123,6 +125,11 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <meta name="color-scheme" content="light dark" />
+        {/* A plain async tag, as AdSense asks: next/script adds a
+            data-nscript attribute that AdSense warns about. */}
+        {ADSENSE_SCRIPT_SRC && (
+          <script async src={ADSENSE_SCRIPT_SRC} crossOrigin="anonymous" />
+        )}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('dw-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.toggle('dark',t==='dark')}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');document.documentElement.classList.add('dark')}}catch(e){}})()`,
@@ -139,13 +146,11 @@ export default function RootLayout({
           Skip to content
         </a>
         <Header />
-        {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
-          <AdUnit
-            slot={process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT}
-            style={{ display: "block", width: "100%", height: 90 }}
-            className="hidden md:flex justify-center bg-slate-50 dark:bg-slate-900"
-          />
-        )}
+        <AdUnit
+          slot={AD_SLOTS.top}
+          style={{ width: "100%", height: 90 }}
+          className="hidden md:flex justify-center bg-slate-50 dark:bg-slate-900"
+        />
         <main id="main-content" className="flex-1">
           {children}
         </main>

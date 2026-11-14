@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { CONTACT_EMAIL, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
@@ -66,11 +66,16 @@ export default function PrivacyPolicyPage() {
           To exercise any of these rights, please contact us through the{" "}
           <a href="/contact" className="text-brand-600 underline">
             Contact page
-          </a>{" "}
-          or by email at{" "}
-          <a href="mailto:info@dailyworld.app" className="text-brand-600 underline">
-            info@dailyworld.app
-          </a>.
+          </a>
+          {CONTACT_EMAIL && (
+            <>
+              {" "}or by email at{" "}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-600 underline">
+                {CONTACT_EMAIL}
+              </a>
+            </>
+          )}
+          .
         </p>
 
         <h2>Data Retention and Protection</h2>
@@ -97,7 +102,18 @@ export default function PrivacyPolicyPage() {
         <ul>
           <li>Name: DailyWorld</li>
           <li>Address: (pending completion)</li>
-          <li>Email: info@dailyworld.app</li>
+          <li>
+            {CONTACT_EMAIL ? (
+              <>Email: {CONTACT_EMAIL}</>
+            ) : (
+              <>
+                Contact:{" "}
+                <a href="/contact" className="text-brand-600 underline">
+                  Contact page
+                </a>
+              </>
+            )}
+          </li>
         </ul>
 
         <p>

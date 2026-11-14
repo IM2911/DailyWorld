@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { CONTACT_EMAIL } from "@/lib/seo";
 
 export function ContactPageClient() {
   const [formData, setFormData] = useState({
@@ -79,13 +80,18 @@ export function ContactPageClient() {
           Contact Us
         </h1>
         <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-          Have feedback, questions, or suggestions? Fill out the form below or email us directly at{" "}
-          <a
-            href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@dailyworld.app"}`}
-            className="text-brand-600 dark:text-brand-400 font-medium underline"
-          >
-            {process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@dailyworld.app"}
-          </a>
+          Have feedback, questions, or suggestions? Fill out the form below
+          {CONTACT_EMAIL && (
+            <>
+              {" "}or email us directly at{" "}
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="text-brand-600 dark:text-brand-400 font-medium underline"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </>
+          )}
           . We look forward to hearing from you!
         </p>
       </div>

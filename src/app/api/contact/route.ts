@@ -56,10 +56,21 @@ export async function POST(request: Request) {
       );
     }
 
-    const recipientEmail =
+    const recipientEmail = (
       process.env.CONTACT_RECIPIENT_EMAIL ||
       process.env.NEXT_PUBLIC_CONTACT_EMAIL ||
-      "info@dailyworld.app";
+      ""
+    ).trim();
+    if (!recipientEmail) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Contact email is not configured. Please set CONTACT_RECIPIENT_EMAIL in your environment variables.",
+        },
+        { status: 503 }
+      );
+    }
 
     // Call Resend REST API
     const resendResponse = await fetch("https://api.resend.com/emails", {

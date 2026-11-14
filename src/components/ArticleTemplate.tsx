@@ -95,9 +95,7 @@ export const ArticleTemplate: React.FC<ArticleTemplateProps> = ({
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
-        <div className="my-8">
-          <AdInArticle />
-        </div>
+        <AdInArticle className="my-8" />
 
         {relatedGuides && relatedGuides.length > 0 && (
           <section className="mt-16 border-t border-border pt-10">

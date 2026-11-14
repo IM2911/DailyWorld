@@ -1,31 +1,53 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { ADSENSE_CLIENT } from "@/lib/adsense";
 
 interface AdUnitProps {
-  slot: string | undefined;
-  style?: React.CSSProperties;
+  /** Ad unit ID from AdSense; null or undefined renders nothing. */
+  slot: string | null | undefined;
+  /** Classes for the wrapper around the ad (layout, spacing, visibility). */
   className?: string;
+  style?: React.CSSProperties;
+  format?: string;
+  fullWidthResponsive?: boolean;
 }
 
-export function AdUnit({ slot, style, className }: AdUnitProps) {
-  useEffect(() => {
-    try {
-      // @ts-ignore – the adsbygoogle script may not be loaded in dev
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      // No ad script – safe to ignore during development
-    }
-  }, []);
+export function AdUnit({
+  slot,
+  className,
+  style,
+  format,
+  fullWidthResponsive,
+}: AdUnitProps) {
+  const ref = useRef<HTMLModElement>(null);
+  const enabled = Boolean(ADSENSE_CLIENT && slot);
 
-  if (!slot) return null;
+  useEffect(() => {
+    const el = ref.current;
+    // AdSense marks filled units with data-adsbygoogle-status; skip those so a
+    // re-run of the effect (React Strict Mode) does not request a second ad.
+    if (!enabled || !el || el.dataset.adsbygoogleStatus) return;
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch {
+      // Blocked by an ad blocker or the script failed to load: leave it empty.
+    }
+  }, [enabled, slot]);
+
+  if (!enabled) return null;
 
   return (
-    <ins
-      className="adsbygoogle"
-      style={style}
-      data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}
-      data-ad-slot={slot}
-    />
+    <div className={className}>
+      <ins
+        ref={ref}
+        className="adsbygoogle"
+        style={{ display: "block", ...style }}
+        data-ad-client={ADSENSE_CLIENT ?? undefined}
+        data-ad-slot={slot ?? undefined}
+        data-ad-format={format}
+        data-full-width-responsive={fullWidthResponsive ? "true" : undefined}
+      />
+    </div>
   );
 }

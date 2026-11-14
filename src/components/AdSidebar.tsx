@@ -1,23 +1,17 @@
-"use client";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/adsense";
 
 /**
- * Sidebar AdSense unit for calculator pages.
- * Positioned in the sticky sidebar of CalculatorLayout.
+ * Sidebar AdSense unit for calculator pages (sticky sidebar of CalculatorLayout).
+ * Renders nothing until NEXT_PUBLIC_ADSENSE_PUBLISHER_ID and
+ * NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT hold real values.
  */
 export function AdSidebar() {
-  // AdSense unit placed inside calculator page sidebar
-  // The component renders the <ins> tag with slot and client IDs
-  // Ensure NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT is set in .env.local (or .dev.vars) for Cloudflare
-
-  // AdSense unit placed inside calculator page sidebar
-  // The component renders the <ins> tag with slot and client IDs
   return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: "block", width: "100%", height: 250, marginBottom: "1.5rem" }}
-      data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}
-      data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT}
-      data-ad-format="auto"
+    <AdUnit
+      slot={AD_SLOTS.sidebar}
+      style={{ width: "100%", height: 250, marginBottom: "1.5rem" }}
+      format="auto"
     />
   );
 }

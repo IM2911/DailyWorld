@@ -25,6 +25,32 @@ DailyWorld is a premium platform providing precise electricity cost calculators 
   `Header` and `Footer` components.
 - **Fonts are self-hosted**: `next/font` for the Next pages, `public/assets/fonts` for the home page.
 - The taste-skill deal, checks and waivers are recorded in `.taste-skill/`.
+- **Site address**: the live site is `https://dailyworld.dailyworldonline.workers.dev`
+  (Cloudflare Workers). It is the default of `SITE_URL` in `src/lib/seo.ts` and is also
+  written in the canonical and `og:` tags of `public/index.html`. To move to a custom domain,
+  set `NEXT_PUBLIC_SITE_URL` and update those tags. (`dailyworld.app` belongs to someone else.)
+
+## Google AdSense
+
+Everything is driven by one variable in `.env.local`:
+
+```bash
+NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=ca-pub-1234567890123456   # your ID from AdSense
+# Optional, once AdSense approves the site and you create ad units:
+NEXT_PUBLIC_ADSENSE_TOP_SLOT=
+NEXT_PUBLIC_ADSENSE_INARTICLE_SLOT=
+NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT=
+```
+
+- With a real ID, every page gets the AdSense script and the `google-adsense-account`
+  verification tag (`src/lib/adsense.ts`, used by `src/app/layout.tsx`).
+- The static home page and `public/ads.txt` are written by `scripts/sync-adsense.mjs`,
+  which runs before every `npm run build` / `npm run dev` (and so before
+  `npm run deploy`). Do not edit the `adsense:start` block in `public/index.html` by hand.
+- Each ad slot (top banner, in-article, calculator sidebar) shows only when its slot ID is set.
+  With no slot IDs, AdSense Auto ads can still place ads from the script alone.
+- An empty or placeholder ID (`pub-XXXXXXXX`) means no ad code at all.
+- After changing the ID, publish again with `npm run deploy`.
 
 ## Technologies
 

@@ -1,18 +1,19 @@
-"use client";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/adsense";
 
 /**
- * In‑article responsive AdSense unit.
- * Uses the public env vars defined in .env.local (and as Cloudflare vars).
+ * In-article responsive AdSense unit.
+ * Renders nothing until NEXT_PUBLIC_ADSENSE_PUBLISHER_ID and
+ * NEXT_PUBLIC_ADSENSE_INARTICLE_SLOT hold real values.
  */
-export function AdInArticle() {
+export function AdInArticle({ className }: { className?: string }) {
   return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: "block", textAlign: "center", margin: "1rem 0" }}
-      data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}
-      data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_INARTICLE_SLOT}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
+    <AdUnit
+      slot={AD_SLOTS.inArticle}
+      className={className}
+      style={{ textAlign: "center" }}
+      format="auto"
+      fullWidthResponsive
     />
   );
 }
